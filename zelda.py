@@ -3,7 +3,7 @@ import os
 import platform
 import random
 
-#diccionario inventario
+#diccionario para el inventario
 inventory = {
     'Hearts': {'current': 3, 'max': 3},
     'food': {
