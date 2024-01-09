@@ -1,63 +1,67 @@
-import random 
+import random
 
-def generar_figura_aleatoria():
-    opciones = [figura_1, figura_2, figura_3]
-    figura_seleccionada = random.choice(opciones)
-    figura_alineada = alinear_a_derecha(figura_seleccionada())
-    return figura_alineada
+def generar_menu_aleatorio():
+    opciones = [menu_1, menu_2, menu_3]
+    menu_seleccionado = random.choice(opciones)
+    return menu_seleccionado()
 
-def alinear_a_derecha(figura):
-    return "\n".join(linea.rjust(20) for linea in figura.splitlines())
+def menu_1():
+    return """   
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *    
+*                                                                &&           *
+*                                                                &&           *
+*                                                             ##OOO           *
+*                                                            ###OOOO          *
+*                                                            ###OOO \         *
+*  Zelda, Breath of the Wild                                   |@@@| \        *
+*                                                              |   |  \       *
+*                                                              =   ==         *
+*                                                           %%%%%%%%%%%%      *
+*                                                        %%%%%%%%%%%%%%%      *   
+*                                                                             *                                                                            
+* Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * *       
 
-
-def figura_1():
-    return"""   
-    
-                               &&
-                               &&
-                             ##OOO
-                            ###OOOO
-                            ###OOO \
-                              |@@@| \
-                              |   |  \
-                              =   ==
-                           %%%%%%%%%%%%
-                         %%%%%%%%%%%%%%%    
-        
-    """
-
-def figura_2():
-    return """
-
-                                &&
-                               oo &
-                     $         -- &##
-                      $$      <<OO####
-                       $$  / /OOO####
-                        $$/ / OO#####
-                         **    OOO###
-                          &    @@@@\
-                               Q  Q
-                               Q  Q
-
-                               
 
 """
 
-def figura_3():
+def menu_2():
     return """
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*                                                                &&           *
+*                                                               oo &          *
+*                                                       $       -- &##        *
+*                                                       $$     <<OO####       *
+*                                                        $$  //OOO####        *
+*  Zelda, Breath of the Wild                              $$// OO#####        * 
+*                                                         **    OOO###        *
+*                                                          &    @@@@\         *
+*                                                               Q  Q          *
+*                                                               Q  Q          *
+*                                                                             *
+* Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * * 
+                              
 
-                                &&
-                               ####
-                              " || "
-                           @@@@@@@@@@@@
-                          @     ||@@@
-                                |@@@
-                               @@@
-                             @@@||     @         
-                          @@@@@@@@@@@@@
-                                ||
+
 """
 
-figura_aleatoria = generar_figura_aleatoria()
-print(figura_aleatoria)
+def menu_3():
+    return """
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                                &&           *
+*                                                               ####          *
+*                                                               "|| "         *
+*                                                           @@@@@@@@@@@@      *
+*                                                           @    ||@@@        *
+*  Zelda, Breath of the Wild                                     |@@@         *
+*                                                               @@@           *
+*                                                             @@@||     @     *    
+*                                                           @@@@@@@@@@@@@     *
+*                                                                ||           *
+*                                                                             *
+* Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * *   
+
+
+"""
+
+menu_aleatorio = generar_menu_aleatorio()
+print(menu_aleatorio)
