@@ -26,12 +26,12 @@ def clear_screen():
 #funciones del prompt
 def clearPrompt():
     global prompt
-    prompt = [""] * 15
+    prompt = [""] * 8
 
 def addToPrompt(text):
     global prompt
     prompt.append(text)
-    if len(prompt) > 15:
+    if len(prompt) > 8:
         prompt.pop(0)
 
 def drawPrompt():
@@ -118,16 +118,26 @@ def eat(inventory, action):
 def cheat(inventory, action):
     if action == 'cheat add vegetable':
         inventory['food']['vegetable'] += 1
-        print('Added 1 vegetable to food inventory.')
     elif action == 'cheat add fish':
         inventory['food']['fish'] += 1
-        print('Added 1 fish to food inventory.')
     elif action == 'cheat add meat':
         inventory['food']['meat'] += 1
-        print('Added 1 meat to food inventory.')
     elif action == 'cheat cook salad':
         cook(inventory, 'cook salad')
     elif action == 'cheat cook pescatarian':
         cook(inventory, 'cook pescatarian')
     elif action == 'cheat cook roasted':
         cook(inventory, 'cook roasted')
+    elif action == 'cheat add wood sword':
+        inventory['weapons']['wood sword'] = {'attack': 1, 'durability': 5}
+    elif action == 'cheat add sword':
+        inventory['weapons']['sword'] = {'attack': 1, 'durability': 9}
+    elif action == 'cheat add wood shield':
+        inventory['weapons']['wood shield'] = {'durability': 5}
+    elif action == 'cheat add shield':
+        inventory['weapons']['shield'] = {'durability': 9}
+    elif action == cheat open sanctuaries:
+
+    elif action == cheat game over:
+
+    elif action == cheat win game:
