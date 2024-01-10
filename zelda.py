@@ -114,4 +114,20 @@ def eat(inventory, action):
             if inventory['Hearts']['current'] > inventory['Hearts']['max']:
                 inventory['Hearts']['current'] = inventory['Hearts']['max']
 
-
+#función trampas (incompleta)
+def cheat(inventory, action):
+    if action == 'cheat add vegetable':
+        inventory['food']['vegetable'] += 1
+        print('Added 1 vegetable to food inventory.')
+    elif action == 'cheat add fish':
+        inventory['food']['fish'] += 1
+        print('Added 1 fish to food inventory.')
+    elif action == 'cheat add meat':
+        inventory['food']['meat'] += 1
+        print('Added 1 meat to food inventory.')
+    elif action == 'cheat cook salad':
+        cook(inventory, 'cook salad')
+    elif action == 'cheat cook pescatarian':
+        cook(inventory, 'cook pescatarian')
+    elif action == 'cheat cook roasted':
+        cook(inventory, 'cook roasted')
