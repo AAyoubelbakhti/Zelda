@@ -20,8 +20,6 @@ def menu_1():
 *                                                        %%%%%%%%%%%%%%%      *   
 *                                                                             *                                                                            
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * *       
-
-
 """
 
 def menu_2():
@@ -39,9 +37,6 @@ def menu_2():
 *                                                               Q  Q          *
 *                                                                             *
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * * 
-                              
-
-
 """
 
 def menu_3():
@@ -59,9 +54,38 @@ def menu_3():
 *                                                                ||           *
 *                                                                             *
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * *   
-
-
 """
 
-menu_aleatorio = generar_menu_aleatorio()
-print(menu_aleatorio)
+def about():
+    return """
+* About * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                                             * 
+*       Game developed by Team 3, The Link of Zelda :                         *
+*                                                                             *
+*                                                                             *
+*            Ayoub El Bakhti                                                  *
+*            Daniel Hirsch                                                    *
+*            Denis Fernández                                                  *
+*                                                                             *
+*                                                                             *
+*       Type 'back' now to go back to the 'Main menu'                         *
+*                                                                             *
+* Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+"""
+
+def legend():
+    return """
+* Legend  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                                             *
+*    10,000 years ago, Hyrule was a land of prosperity thanks to the Sheikah  *
+*    tribe. The Sheikah were a tribe of warriors who protected the Triforce,  *
+*    a sacred relic that granted wishes.                                      *
+*                                                                             *
+*    But one day, Ganondorf, an evil sorcerer, stole the Triforce and began   *
+*    to rule Hyrule with an iron fist.                                        *
+*                                                                             *
+*    The princess, with the help of a heroic young man, managed to defeat     *
+*    Ganondorf and recover the Triforce.                                      *
+*                                                                             *
+* Continue  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+"""
