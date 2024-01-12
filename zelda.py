@@ -5,7 +5,10 @@ import random
 
 #diccionario para el inventario
 inventory = {
+    ''name': 'link',
+    ''BloodMoon': '25',
     'Hearts': {'current': 3, 'max': 3},
+
     'food': {
 
     },
@@ -116,6 +119,9 @@ def eat(inventory, action):
 
 #función trampas (incompleta)
 def cheat(inventory, action):
+    elif action == 'cheat rename':
+
+        inventory['name'] = 'Neu Name'
     if action == 'cheat add vegetable':
         inventory['food']['vegetable'] += 1
     elif action == 'cheat add fish':
