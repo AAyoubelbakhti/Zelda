@@ -1,10 +1,14 @@
 import mysql.connector
 from DAzelda import generar_menu_aleatorio
-from NewGame import get_player_name, new_game_menu, help_new_game
+from M3.FuncionesMenu import get_player_name, new_game_menu, help_new_game
 
 
 cnx = mysql.connector.connect(user='root', password='superlocal', host='127.0.0.1', database='ZeldaSQL')
 
+in_new_game = False 
+in_inventory = False
+in_saved_games = False
+in_main_menu = False
 
 
 prompt = [""] * 8
@@ -54,7 +58,7 @@ def main():
     clear_prompt()
 
     while True:
-        generar_menu_aleatorio
+        generar_menu_aleatorio()
         draw_prompt()
         user_input = input("Enter an action: ").lower()
         if process_action(user_input):

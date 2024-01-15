@@ -4,7 +4,7 @@ USE ZeldaSQL;
 
 -- Usuarios
 CREATE TABLE Users (
-    user_id INT,
+    user_id INT UNSIGNED AUTO_INCREMENT,
     username VARCHAR(50),
     created_at DATETIME,
     modified_at DATETIME
@@ -12,7 +12,7 @@ CREATE TABLE Users (
 
 -- Partidas
 CREATE TABLE Games (
-    game_id INT,
+    game_id INT UNSIGNED AUTO_INCREMENT,
     user_id INT,
     date_started DATETIME,
     hearts_remaining INT,
