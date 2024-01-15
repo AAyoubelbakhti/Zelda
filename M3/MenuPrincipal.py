@@ -1,21 +1,26 @@
 import mysql.connector
 from DAzelda import generar_menu_aleatorio
+from NewGame import get_player_name, new_game_menu, help_new_game
+
 
 cnx = mysql.connector.connect(user='root', password='superlocal', host='127.0.0.1', database='ZeldaSQL')
 
 
 
 prompt = [""] * 8
+player_name = "Link"
 
 def clear_prompt():
     global prompt
     prompt = [""] * 8
 
-def add_to_prompt(text):
+def add_to_prompt(messages):
     global prompt
-    prompt.append(text)
-    if len(prompt) > 8:
-        prompt.pop(0)
+    for message in messages:
+        if isinstance(message, str):
+            prompt.append(message)
+        else:
+            add_to_prompt(message)
 
 def draw_prompt():
     global prompt
@@ -32,7 +37,7 @@ def process_action(action):
     elif action == 'new game':
         add_to_prompt("Starting a new game...")
     elif action == 'help':
-        add_to_prompt("Showing help...")
+        add_to_prompt(new_game_menu(player_name))
     elif action == 'about':
         add_to_prompt("About...") 
     elif action == 'exit':
