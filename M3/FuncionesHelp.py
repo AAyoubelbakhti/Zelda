@@ -1,48 +1,3 @@
-def get_player_name(player_name):
-    messages = []
-    while True:
-        name_input= input(f"Whats your name {player_name}? ")
-
-        if not name_input: #En caso de que el jugador no ponga nada le dejaremos "Link" por defecto
-            return messages, "Link"
-        
-        if name_input.lower == "back":
-            messages.append("Going back to the Main menu...")
-            return messages, None
-        
-        if name_input.isalnum() or name_input.isspace():
-            return messages, name_input
-        
-        else:
-            messages.append(f"{name_input} is not a valid name")
-
-def new_game_menu(player_name):
-    messages = []
-
-    new_game_menu_text = f"""
-* New game  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*                                                                             *
-*                                                                             *
-*                                                                             *
-*                                                                             *
-*       Set your name ({player_name})?                                        *
-*                                                                             *
-*                                                                             *
-*                                                                             *
-*       Type 'back' now to go back to the 'Main menu'                         *
-*                                                                             *
-*                                                                             *
-* Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
-    
-    messages.append(new_game_menu_text)
-    messages.append(get_player_name(player_name))
-
-
-    if messages[-1][1] is not None:
-        messages.append(f"Welcome to the game, {messages[-1][1]}!")
-    
-    return messages
 
 def help_new_game():
     messages = []
@@ -120,11 +75,11 @@ def main_menu_help():
 """
 
     messages.append(help_menu_text)
-    user_input = input("Enter 'back' to return to the main menu: ").lower()
+    user_input = input("Type 'back' to return to the main menu: ").lower()
 
 
     if user_input == "back":
-        messages.append("Going back to the Main Menu...")
+        messages.append("Loading...")
     else:
         messages.append("Invalid action. Type 'back' to return to the Main menu")
     
@@ -158,3 +113,4 @@ def saved_games_help():
         messages.append("Invalid action. Type 'back' to return to the main menu")
     
     return messages
+

@@ -1,6 +1,8 @@
 import mysql.connector
-from DAzelda import generar_menu_aleatorio
-from M3.FuncionesMenu import get_player_name, new_game_menu, help_new_game
+from M3.MenuAleatorio import generar_menu_aleatorio
+from M3.FuncionesHelp import help_new_game, inventory_help, saved_games_help, main_menu_help
+from NewGame import new_game_menu
+
 
 
 cnx = mysql.connector.connect(user='root', password='superlocal', host='127.0.0.1', database='ZeldaSQL')
@@ -33,7 +35,7 @@ def draw_prompt():
 
 
 def process_action(action):
-    global prompt
+    global prompt, player_name, in_new_game, in_inventory, in_main_menu, in_saved_games
     action = action.lower()
 
     if action == 'continue':
