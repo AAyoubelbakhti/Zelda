@@ -161,8 +161,8 @@ def decrease_blood_moon(inventory):
 #contador de items
 wooden_sword_counter = 0
 wooden_shield_counter = 0
-iron_sword_counter = 0
-iron_shield_counter = 0
+sword_counter = 0
+shield_counter = 0
 vegetable_counter = 0
 fish_counter = 0
 meat_counter = 0
@@ -172,25 +172,25 @@ roasted_counter = 0
 
 # función para generar el item y añadirlo al contador
 def generate_item(item_type):
-    global wooden_sword_counter, wooden_shield_counter, iron_sword_counter, iron_shield_counter
+    global wooden_sword_counter, wooden_shield_counter, sword_counter, shield_counter
     global vegetable_counter, fish_counter, meat_counter, salad_counter, pescatarian_counter, roasted_counter
 
     if item_type == "wooden_sword":
-        sword_id = wooden_sword_counter
+        wooden_sword_id = wooden_sword_counter
         wooden_sword_counter += 1
-        return {"id": sword_id, "type": "wooden sword"}
+        return {"id": wooden_sword_id, "type": "wooden sword"}
     elif item_type == "wooden_shield":
-        shield_id = wooden_shield_counter
+        wooden_shield_id = wooden_shield_counter
         wooden_shield_counter += 1
-        return {"id": shield_id, "type": "wooden shield"}
-    elif item_type == "iron_sword":
-        sword_id = iron_sword_counter
-        iron_sword_counter += 1
-        return {"id": sword_id, "type": "iron sword"}
-    elif item_type == "iron_shield":
+        return {"id": wooden_shield_id, "type": "wooden shield"}
+    elif item_type == "sword":
+        sword_id = sword_counter
+        sword_counter += 1
+        return {"id": sword_id, "type": "sword"}
+    elif item_type == "shield":
         shield_id = iron_shield_counter
-        iron_shield_counter += 1
-        return {"id": shield_id, "type": "iron shield"}
+        shield_counter += 1
+        return {"id": shield_id, "type": "shield"}
     elif item_type == "vegetable":
         vegetable_id = vegetable_counter
         vegetable_counter += 1
