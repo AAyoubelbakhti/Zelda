@@ -1,20 +1,25 @@
+from MenuPrincipal import draw_prompt
+
 def get_player_name(player_name):
     messages = []
-    while True:
-        name_input= input(f"Whats your name {player_name}? ")
 
-        if not name_input: #En caso de que el jugador no ponga nada le dejaremos "Link" por defecto
+    while True:
+        name_input = input(f"What's your name, {player_name}? ")
+
+        if not name_input:  # En caso de que el jugador no ponga nada le dejaremos "Link" por defecto
             return messages, "Link"
-        
-        if name_input.lower == "back":
+
+        if name_input.lower() == "back":
             messages.append("Going back to the Main menu...")
             return messages, None
-        
+
         if name_input.isalnum() or name_input.isspace():
+            messages.append(f"Welcome to the game, {name_input}!")
             return messages, name_input
-        
         else:
-            messages.append(f"{name_input} is not a valid name")
+            messages.append(f"{name_input} is not a valid name. Name must be alphanumeric and can contain spaces.")
+
+
 
 def new_game_menu(player_name):
     messages = []
@@ -34,45 +39,17 @@ def new_game_menu(player_name):
 *                                                                             *
 * Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """
-    
+
     messages.append(new_game_menu_text)
-    messages.append(get_player_name(player_name))
+    draw_prompt()
 
+    result, name_input = get_player_name(player_name)
+    messages.append(result)
 
-    if messages[-1][1] is not None:
-        messages.append(f"Welcome to the game, {messages[-1][1]}!")
-    
-    return messages
+    if name_input is not None:
+        messages.append(f"Welcome to the game, {name_input}!")
 
-def about():
-    messages = []
-
-    about_menu_text= """
-* About * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*                                                                             * 
-*       Game developed by Team 3, The Link of Zelda :                         *
-*                                                                             *
-*                                                                             *
-*            Ayoub El Bakhti                                                  *
-*            Daniel Hirsch                                                    *
-*            Denis Fernández                                                  *
-*                                                                             *
-*                                                                             *
-*       Type 'back' now to go back to the 'Main menu'                         *
-*                                                                             *
-* Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
-
-    messages.append(about_menu_text)
-    user_input = input("Type 'back' to return to the Main menu").lower()
-
-
-    if user_input == "continue":
-        messages.append("Loading...")
-    else:
-        messages.append("Invalid action. Type 'back' to retunr to the game.")
-
-    return messages
+    return messages, name_input
 
 
 

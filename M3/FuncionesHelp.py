@@ -52,7 +52,7 @@ def inventory_help():
     if user_input == "back":
         messages.append("going back to the game...")
     else:
-        messages.append("Invalid action. Type 'back' to retunr to the game.")
+        messages.append("Invalid action. Type 'back' to resume the game.")
 
     return messages
 
@@ -105,12 +105,41 @@ def saved_games_help():
 """
 
     messages.append(help_menu_text)
-    user_input = input("Enter an action: ").lower()
+    user_input = input("Type 'back' to return to the main menu: ").lower()
 
     if user_input == 'back':
-        messages.append("Going back to the main menu...")
+        messages.append("Going back to the Main menu...")
     else:
         messages.append("Invalid action. Type 'back' to return to the main menu")
     
     return messages
 
+def about():
+    messages = []
+
+    about_menu_text= """
+* About * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                                             * 
+*       Game developed by Team 3, The Link of Zelda :                         *
+*                                                                             *
+*                                                                             *
+*            Ayoub El Bakhti                                                  *
+*            Daniel Hirsch                                                    *
+*            Denis Fernández                                                  *
+*                                                                             *
+*                                                                             *
+*       Type 'back' now to go back to the 'Main menu'                         *
+*                                                                             *
+* Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+"""
+
+    messages.append(about_menu_text)
+    user_input = input("Type 'back' to return to the Main menu").lower()
+
+
+    if user_input == "continue":
+        messages.append("Loading...")
+    else:
+        messages.append("Invalid action. Type 'back' to retunr to the game.")
+
+    return messages

@@ -6,7 +6,8 @@ def generar_menu_aleatorio():
     return menu_seleccionado()
 
 def menu_1():
-    return """   
+    messages = []
+    menu_1_text = """   
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *    
 *                                                                &&           *
 *                                                                &&           *
@@ -22,8 +23,13 @@ def menu_1():
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * *       
 """
 
+    messages.append(menu_1_text)
+    return messages
+
+
 def menu_2():
-    return """
+    messages = []
+    menu_2_text = """
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 *                                                                &&           *
 *                                                               oo &          *
@@ -39,8 +45,13 @@ def menu_2():
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * * 
 """
 
+    messages.append(menu_2_text)
+    return messages
+
+
 def menu_3():
-    return """
+    messages = [] 
+    menu_3_text = """
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                &&           *
 *                                                               ####          *
@@ -55,4 +66,5 @@ def menu_3():
 *                                                                             *
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * *   
 """
-
+    messages.append(menu_3_text)
+    return messages
