@@ -157,3 +157,69 @@ def decrease_blood_moon(inventory):
         inventory['BloodMoon'] = str(blood_moon)
     else:
         inventory['BloodMoon'] = '25'
+
+#contador de items
+wooden_sword_counter = 0
+wooden_shield_counter = 0
+iron_sword_counter = 0
+iron_shield_counter = 0
+vegetable_counter = 0
+fish_counter = 0
+meat_counter = 0
+salad_counter = 0
+pescatarian_counter = 0
+roasted_counter = 0
+
+# función para generar el item y añadirlo al contador
+def generate_item(item_type):
+    global wooden_sword_counter, wooden_shield_counter, iron_sword_counter, iron_shield_counter
+    global vegetable_counter, fish_counter, meat_counter, salad_counter, pescatarian_counter, roasted_counter
+
+    if item_type == "wooden_sword":
+        sword_id = wooden_sword_counter
+        wooden_sword_counter += 1
+        return {"id": sword_id, "type": "wooden sword"}
+    elif item_type == "wooden_shield":
+        shield_id = wooden_shield_counter
+        wooden_shield_counter += 1
+        return {"id": shield_id, "type": "wooden shield"}
+    elif item_type == "iron_sword":
+        sword_id = iron_sword_counter
+        iron_sword_counter += 1
+        return {"id": sword_id, "type": "iron sword"}
+    elif item_type == "iron_shield":
+        shield_id = iron_shield_counter
+        iron_shield_counter += 1
+        return {"id": shield_id, "type": "iron shield"}
+    elif item_type == "vegetable":
+        vegetable_id = vegetable_counter
+        vegetable_counter += 1
+        inventory['food']['vegetable'] += 1
+        return {"id": vegetable_id, "type": "vegetable"}
+    elif item_type == "fish":
+        fish_id = fish_counter
+        fish_counter += 1
+        inventory['food']['fish'] += 1
+        return {"id": fish_id, "type": "fish"}
+    elif item_type == "meat":
+        meat_id = meat_counter
+        meat_counter += 1
+        inventory['food']['meat'] += 1
+        return {"id": meat_id, "type": "meat"}
+    elif item_type == "salad":
+        salad_id = salad_counter
+        salad_counter += 1
+        inventory['food']['salad'] += 1
+        return {"id": salad_id, "type": "salad"}
+    elif item_type == "pescatarian":
+        pescatarian_id = pescatarian_counter
+        pescatarian_counter += 1
+        inventory['food']['pescatarian'] += 1
+        return {"id": pescatarian_id, "type": "pescatarian"}
+    elif item_type == "roasted":
+        roasted_id = roasted_counter
+        roasted_counter += 1
+        inventory['food']['roasted'] += 1
+        return {"id": roasted_id, "type": "roasted"}
+    else:
+        raise ValueError("Invalid item type. Supported types: 'wooden_sword', 'wooden_shield', 'iron_sword', 'iron_shield', 'vegetable', 'fish', 'meat', 'salad', 'pescatarian', 'roasted'")
