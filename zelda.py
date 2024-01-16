@@ -147,3 +147,13 @@ def cheat(inventory, action):
     elif action == cheat game over:
 
     elif action == cheat win game:
+
+
+#función para  el contador de blood moon (faltala parte para regenerar los  bichos)
+def decrease_blood_moon(inventory):
+    blood_moon = int(inventory['BloodMoon'])
+    if blood_moon > 0:
+        blood_moon -= 1
+        inventory['BloodMoon'] = str(blood_moon)
+    else:
+        inventory['BloodMoon'] = '25'
