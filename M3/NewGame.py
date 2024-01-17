@@ -1,10 +1,8 @@
-from MenuPrincipal import draw_prompt
-
 def get_player_name(player_name):
     messages = []
 
     while True:
-        name_input = input(f"What's your name, {player_name}? ")
+        name_input = input(f"Set your name ({player_name})? ")
 
         if not name_input:  # En caso de que el jugador no ponga nada le dejaremos "Link" por defecto
             return messages, "Link"
@@ -19,37 +17,30 @@ def get_player_name(player_name):
         else:
             messages.append(f"{name_input} is not a valid name. Name must be alphanumeric and can contain spaces.")
 
-
-
 def new_game_menu(player_name):
     messages = []
 
     new_game_menu_text = f"""
-* New game  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*                                                                             *
-*                                                                             *
-*                                                                             *
-*                                                                             *
-*       Set your name ({player_name})?                                        *
-*                                                                             *
-*                                                                             *
-*                                                                             *
-*       Type 'back' now to go back to the 'Main menu'                         *
-*                                                                             *
-*                                                                             *
-* Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
+    * New game  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    *                                                                             *
+    *                                                                             *
+    *                                                                             *
+    *                                                                             *
+    *       Set your name ({player_name})?                                        *
+    *                                                                             *
+    *                                                                             *
+    *                                                                             *
+    *       Type 'back' now to go back to the 'Main menu'                         *
+    *                                                                             *
+    *                                                                             *
+    * Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    """
 
     messages.append(new_game_menu_text)
-    draw_prompt()
-
     result, name_input = get_player_name(player_name)
-    messages.append(result)
+    messages.extend(result)  # Extiende la lista de mensajes
 
-    if name_input is not None:
-        messages.append(f"Welcome to the game, {name_input}!")
-
-    return messages, name_input
+    return messages
 
 
 

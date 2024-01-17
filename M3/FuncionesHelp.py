@@ -134,7 +134,7 @@ def about():
 """
 
     messages.append(about_menu_text)
-    user_input = input("Type 'back' to return to the Main menu").lower()
+    user_input = input("Type 'back' to return to the Main menu: ").lower()
 
 
     if user_input == "continue":
