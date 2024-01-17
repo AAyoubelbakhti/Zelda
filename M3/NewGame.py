@@ -1,23 +1,5 @@
-def get_player_name(player_name):
-    messages = []
-
-    while True:
-        name_input = input(f"Set your name ({player_name})? ")
-
-        if not name_input:  # En caso de que el jugador no ponga nada le dejaremos "Link" por defecto
-            return messages, "Link"
-
-        if name_input.lower() == "back":
-            messages.append("Going back to the Main menu...")
-            return messages, None
-
-        if name_input.isalnum() or name_input.isspace():
-            messages.append(f"Welcome to the game, {name_input}!")
-            return messages, name_input
-        else:
-            messages.append(f"{name_input} is not a valid name. Name must be alphanumeric and can contain spaces.")
-
-def new_game_menu(player_name):
+from MenuPrincipal import draw_prompt
+def new_game_menu():
     messages = []
 
     new_game_menu_text = f"""
@@ -26,7 +8,7 @@ def new_game_menu(player_name):
     *                                                                             *
     *                                                                             *
     *                                                                             *
-    *       Set your name ({player_name})?                                        *
+    *           Set your name {player_name}                                       *
     *                                                                             *
     *                                                                             *
     *                                                                             *
@@ -37,10 +19,26 @@ def new_game_menu(player_name):
     """
 
     messages.append(new_game_menu_text)
-    result, name_input = get_player_name(player_name)
-    messages.extend(result)  # Extiende la lista de mensajes
+    draw_prompt()
 
-    return messages
+    while True:
+        player_name = input("Set your name (Link)? ")
+
+        if not player_name:  
+            player_name = "Link"
+            messages.append("Defaulting to 'Link'.")
+
+        if player_name.lower() == "back":
+            messages.append("Going back to the Main menu...")
+            return messages, None
+
+        if player_name.isalnum() or player_name.isspace():
+            messages.append(f"Welcome to the game, {player_name}!")
+            return messages, player_name
+        else:
+            messages.append(f"{player_name} is not a valid name. Name must be alphanumeric and can contain spaces.")
+            draw_prompt()  # Vuelve a dibujar el prompt para mantener la presentación
+
 
 
 
