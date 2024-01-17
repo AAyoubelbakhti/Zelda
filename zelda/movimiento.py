@@ -1,4 +1,5 @@
-from maps import maps
+from zelda.maps import maps
+import random
 # La idea es hacer algo como Hyrule[3][4] y ir moviendose en un eje X Y.
 
 # Lista de cosas que hacer
@@ -32,4 +33,40 @@ from maps import maps
 # Los enemigos tienen vida y cuando mueren desaparecen.
 # Cuando atacas te quitan 1 corazon y se mueven 1 posicion
 # - Castillo lo ultimo
+
+gespa = " "
+spawn = "!"
+roca = "O"
+cocina = "C"
+arbre = "T"
+#If arbre mapa[x][y+1] isnumber, False
+agua = "~"
+fox = "F"
+santuari = "S"
+#If santuari pos +2 is "?", then "?" = " "
+link = "X"
+chest = "M"
+open_chest = "W"
+enemy = "E"
+
+def movements(ac):
+    words = ac.split()
+    way = words[1]
+    acts = words[2]
+    if way == "left":
+        #posicion check y intercambiar el " " por "X"
+    elif way == "right":
+        #
+    elif way == "up":
+        #
+    elif way == "down":
+        #
+    elif way == "by":
+        #Buscar en el mapa la posicion valida mas cercana a lo que pide
+    else:
+        # go to Hyrule, va al ! de ese mapa, hay 1 mapa inaccesible depende de el mapa en el que estes     
+
+def actions(ac):
+    if (ac.split()[0]) == "go":
+        movements(ac)
 
