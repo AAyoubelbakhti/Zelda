@@ -15,16 +15,16 @@ def show_inventory(inventory, category):
     elif category == 'main':
         for key, value in inventory.items():
             if key == 'weapons':
-                print(f'{key}: {", ".join(value)}')
+                print(f'{key}: {", ".join(item["type"] for item in value)}')
             elif key == 'food':
-                print(f'{key}: {value.keys()}')
+                print(f'{key}: {", ".join(f"{food} ({quantity})" for food, quantity in value.items())}')
             else:
                 print(f'{key}: {value}')
     elif category in inventory:
         if category == 'weapons':
-            print(f'\nInventory {category}: {", ".join(inventory[category])}')
+            print(f'\nInventory {category}: {", ".join(item["type"] for item in inventory[category])}')
         elif category == 'food':
-            print(f'\nInventory {category}: {list(inventory[category].keys())}')
+            print(f'\nInventory {category}: {", ".join(f"{food} ({quantity})" for food, quantity in inventory[category].items())}')
         else:
             print(f'\nInventory {category}: {inventory[category]}')
     else:
