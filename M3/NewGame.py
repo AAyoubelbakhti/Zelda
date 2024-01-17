@@ -1,22 +1,22 @@
-from MenuPrincipal import draw_prompt
+from FuncionesPrompt import draw_prompt
 def new_game_menu():
     messages = []
-
+    player_name = "Link"
     new_game_menu_text = f"""
-    * New game  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    *                                                                             *
-    *                                                                             *
-    *                                                                             *
-    *                                                                             *
-    *           Set your name {player_name}                                       *
-    *                                                                             *
-    *                                                                             *
-    *                                                                             *
-    *       Type 'back' now to go back to the 'Main menu'                         *
-    *                                                                             *
-    *                                                                             *
-    * Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    """
+* New game  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                                             *
+*                                                                             *
+*                                                                             *
+*                                                                             *
+*           Set your name {player_name}                                                *
+*                                                                             *
+*                                                                             *
+*                                                                             *
+*       Type 'back' now to go back to the 'Main menu'                         *
+*                                                                             *
+*                                                                             *
+* Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+"""
 
     messages.append(new_game_menu_text)
     draw_prompt()

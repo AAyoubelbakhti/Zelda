@@ -2,6 +2,9 @@ import mysql.connector
 from MenuAleatorio import generar_menu_aleatorio
 from FuncionesHelp import help_new_game, inventory_help, saved_games_help, main_menu_help, about
 from NewGame import new_game_menu, legend, plot
+from FuncionesPrompt import clear_prompt, add_to_prompt, draw_prompt
+
+
 
 
 
@@ -12,31 +15,13 @@ in_inventory = False
 in_saved_games = False
 in_main_menu = False
 
-player_name = "Link"
+
 prompt = [""] * 8
-
-
-def clear_prompt():
-    global prompt
-    prompt = [""] * 8
-
-def add_to_prompt(messages):
-    global prompt
-    for message in messages:
-        if isinstance(message, str):
-            prompt.append(message)
-        else:
-            add_to_prompt(message)
-
-def draw_prompt():
-    global prompt
-    print('\n'.join(prompt))
-
 
 
 
 def main():
-    player_name = "Link"  # Puedes establecer un nombre predeterminado o dejarlo vacío
+    
 
     # Menú principal
     while True:
@@ -48,7 +33,7 @@ def main():
 
         if user_input == "new game":
             clear_prompt()
-            new_game_messages = new_game_menu(player_name)
+            new_game_messages = new_game_menu()
             add_to_prompt(new_game_messages)
 
             # Puedes agregar más lógica relacionada con el juego aquí
