@@ -1,4 +1,4 @@
-from zelda.maps import maps
+from M3.maps import maps
 import random
 # La idea es hacer algo como Hyrule[3][4] y ir moviendose en un eje X Y.
 
@@ -6,13 +6,8 @@ import random
 
 # - Santuarios ? a () y curan entero y + 1 max corazon + "Open Sanctuary"
 # - Funcio Show map
-# - Import Maps
-# - Guardar la posicion del user 
 # - Canvi seccio, santuari, menjar, get weapon = Save game
-# - Las ! son la pos default del personaje
 # - Los espacios se pueden atacar con la espada, 1/10 te da lagarto
-# - O son piedras
-# - C se puede cocinar al lado
 # - T y TX.
 # Puños: 40% poma, 10% espada madera o escudo madera
 # Espada: 40% poma, 20% espada madera o escudo madera, Espada -1 uso 
@@ -49,11 +44,20 @@ link = "X"
 chest = "M"
 open_chest = "W"
 enemy = "E"
-
-def movements(ac):
+current_position = 0
+def movements(ac,mapa,current_position):
     words = ac.split()
     way = words[1]
-    acts = words[2]
+    acts = int(words[2])
+    # def is_valid_position(x, y):
+    #     if 0 <= x < len(mapa) and 0 <= y < len(mapa[0]):
+    #         return True
+    #     return False
+
+    # def is_valid_move(x, y):
+    #     if is_valid_position(x, y) and mapa[x][y] != roca and mapa[x][y] != arbre and mapa[x][y] != cocina and mapa[x][y] != agua:
+    #         return True
+    #     return False
     if way == "left":
         #posicion check y intercambiar el " " por "X"
     elif way == "right":
@@ -69,5 +73,5 @@ def movements(ac):
 
 def actions(ac):
     if (ac.split()[0]) == "go":
-        movements(ac)
+        movements(ac,'Hyrule',current_position)
 
