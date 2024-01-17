@@ -5,13 +5,15 @@ from otrasfunciones import clear_screen
 def new_game_menu():
     messages = []
 
+    clear_screen()
+
     new_game_menu_text = f"""
 * New game  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
 *                                                                             *
 *                                                                             *
 *                                                                             *
-*           Set your name                                                          *
+*           Set your name {player_name}                                            *
 *                                                                             *
 *                                                                             *
 *                                                                             *
@@ -19,7 +21,7 @@ def new_game_menu():
 *                                                                             *
 *                                                                             *
 * Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-    """
+"""
 
     messages.append(new_game_menu_text)
     draw_prompt()
@@ -44,13 +46,17 @@ def new_game_menu():
                 # Aquí puedes llamar a la función 'plot_menu' o realizar las acciones necesarias para el menú de 'plot'
                 plot_messages = plot(player_name)
                 messages.extend(plot_messages)
+                clear_screen()
+                draw_prompt()
                 return messages, player_name
             else:
                 messages.append("Invalid action. Starting a new game.")
-                draw_prompt()  # Vuelve a dibujar el prompt para mantener la presentación
+                clear_screen()
+                draw_prompt()
         else:
             messages.append(f"{player_name} is not a valid name. Name must be alphanumeric and can contain spaces.")
-            draw_prompt()  # Vuelve a dibujar el prompt para mantener la presentación
+            clear_screen()
+            draw_prompt()
 
 
 
