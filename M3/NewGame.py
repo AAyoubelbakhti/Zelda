@@ -1,6 +1,6 @@
 from FuncionesPrompt import draw_prompt
 from MenusVisuales import legend, plot
-# ...
+from otrasfunciones import clear_screen
 
 def new_game_menu():
     messages = []
