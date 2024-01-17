@@ -1,7 +1,6 @@
 def legend():
-    messages = []
 
-    legend_menu_text = """
+    print( """
 * Legend  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
 *    10,000 years ago, Hyrule was a land of prosperity thanks to the Sheikah  *
@@ -15,18 +14,10 @@ def legend():
 *    Ganondorf and recover the Triforce.                                      *
 *                                                                             *
 * Continue  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-"""
-
-    messages.append(legend_menu_text)
-    user_input = input("Type 'continue' to continue: ").lower()
+""")
 
 
-    if user_input == "continue":
-        messages.append("Loading...")
-    else:
-        messages.append("Invalid action. Type 'back' to retunr to the game.")
 
-    return messages
 
 
 def plot(player_name):
@@ -48,12 +39,6 @@ def plot(player_name):
 """
 
     messages.append(plot_menu_text)
-    user_input = input("Type 'continue' to continue: ").lower()
 
-
-    if user_input == "continue":
-        messages.append("Loading...")
-    else:
-        messages.append("Invalid action. Type 'back' to retunr to the game.")
 
     return messages
