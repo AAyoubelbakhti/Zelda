@@ -5,18 +5,26 @@ import random
 
 #diccionario para el inventario
 inventory = {
-    ''name': 'link',
-    ''BloodMoon': '25',
+    'name': 'link',
+    'BloodMoon': '25',
     'Hearts': {'current': 3, 'max': 3},
-
-    'food': {
-
-    },
-    'weapons': {
-
-    }
+    'food': {},
+    'weapons': []
 }
 
+# diccionario de contadores
+item_counters = {
+    'wooden_sword': 0,
+    'wooden_shield': 0,
+    'sword': 0,
+    'shield': 0,
+    'vegetable': 0,
+    'fish': 0,
+    'meat': 0,
+    'salad': 0,
+    'pescatarian': 0,
+    'roasted': 0
+}
 
 #Función para limpiar la pantalla
 def clear_screen():
@@ -117,37 +125,6 @@ def eat(inventory, action):
             if inventory['Hearts']['current'] > inventory['Hearts']['max']:
                 inventory['Hearts']['current'] = inventory['Hearts']['max']
 
-#función trampas (incompleta)
-def cheat(inventory, action):
-    elif action == 'cheat rename':
-
-        inventory['name'] = 'Neu Name'
-    if action == 'cheat add vegetable':
-        inventory['food']['vegetable'] += 1
-    elif action == 'cheat add fish':
-        inventory['food']['fish'] += 1
-    elif action == 'cheat add meat':
-        inventory['food']['meat'] += 1
-    elif action == 'cheat cook salad':
-        cook(inventory, 'cook salad')
-    elif action == 'cheat cook pescatarian':
-        cook(inventory, 'cook pescatarian')
-    elif action == 'cheat cook roasted':
-        cook(inventory, 'cook roasted')
-    elif action == 'cheat add wood sword':
-        inventory['weapons']['wood sword'] = {'attack': 1, 'durability': 5}
-    elif action == 'cheat add sword':
-        inventory['weapons']['sword'] = {'attack': 1, 'durability': 9}
-    elif action == 'cheat add wood shield':
-        inventory['weapons']['wood shield'] = {'durability': 5}
-    elif action == 'cheat add shield':
-        inventory['weapons']['shield'] = {'durability': 9}
-    elif action == cheat open sanctuaries:
-
-    elif action == cheat game over:
-
-    elif action == cheat win game:
-
 
 #función para  el contador de blood moon (faltala parte para regenerar los  bichos)
 def decrease_blood_moon(inventory):
@@ -158,68 +135,49 @@ def decrease_blood_moon(inventory):
     else:
         inventory['BloodMoon'] = '25'
 
-#contador de items
-wooden_sword_counter = 0
-wooden_shield_counter = 0
-sword_counter = 0
-shield_counter = 0
-vegetable_counter = 0
-fish_counter = 0
-meat_counter = 0
-salad_counter = 0
-pescatarian_counter = 0
-roasted_counter = 0
-
 # función para generar el item y añadirlo al contador
 def generate_item(item_type):
-    global wooden_sword_counter, wooden_shield_counter, sword_counter, shield_counter
-    global vegetable_counter, fish_counter, meat_counter, salad_counter, pescatarian_counter, roasted_counter
-
-    if item_type == "wooden_sword":
-        wooden_sword_id = wooden_sword_counter
-        wooden_sword_counter += 1
-        return {"id": wooden_sword_id, "type": "wooden sword"}
-    elif item_type == "wooden_shield":
-        wooden_shield_id = wooden_shield_counter
-        wooden_shield_counter += 1
-        return {"id": wooden_shield_id, "type": "wooden shield"}
-    elif item_type == "sword":
-        sword_id = sword_counter
-        sword_counter += 1
-        return {"id": sword_id, "type": "sword"}
-    elif item_type == "shield":
-        shield_id = iron_shield_counter
-        shield_counter += 1
-        return {"id": shield_id, "type": "shield"}
-    elif item_type == "vegetable":
-        vegetable_id = vegetable_counter
-        vegetable_counter += 1
-        inventory['food']['vegetable'] += 1
-        return {"id": vegetable_id, "type": "vegetable"}
-    elif item_type == "fish":
-        fish_id = fish_counter
-        fish_counter += 1
-        inventory['food']['fish'] += 1
-        return {"id": fish_id, "type": "fish"}
-    elif item_type == "meat":
-        meat_id = meat_counter
-        meat_counter += 1
-        inventory['food']['meat'] += 1
-        return {"id": meat_id, "type": "meat"}
-    elif item_type == "salad":
-        salad_id = salad_counter
-        salad_counter += 1
-        inventory['food']['salad'] += 1
-        return {"id": salad_id, "type": "salad"}
-    elif item_type == "pescatarian":
-        pescatarian_id = pescatarian_counter
-        pescatarian_counter += 1
-        inventory['food']['pescatarian'] += 1
-        return {"id": pescatarian_id, "type": "pescatarian"}
-    elif item_type == "roasted":
-        roasted_id = roasted_counter
-        roasted_counter += 1
-        inventory['food']['roasted'] += 1
-        return {"id": roasted_id, "type": "roasted"}
+    if item_type in item_counters:
+        item_counters[item_type] += 1
+        item_id = item_counters[item_type]
+        durability_max = 5 if 'wooden' in item_type else 9
+        if item_type.startswith(('wooden_sword', 'wooden_shield', 'sword', 'shield')):
+            inventory['weapons'].append({"id": item_id, "type": item_type, "durability": {"current": durability_max, "max": durability_max}})
+        else:
+            inventory['food'].setdefault(item_type, 0)
+            inventory['food'][item_type] += 1
+            return {"id": item_id, "type": item_type}
     else:
-        raise ValueError("Invalid item type. Supported types: 'wooden_sword', 'wooden_shield', 'iron_sword', 'iron_shield', 'vegetable', 'fish', 'meat', 'salad', 'pescatarian', 'roasted'")
+        raise ValueError("Invalid item type. Supported types: 'wooden_sword', 'wooden_shield', 'sword', 'shield', 'vegetable', 'fish', 'meat', 'salad', 'pescatarian', 'roasted'")
+
+
+#función trampas (incompleta)
+def cheat(inventory, action):
+    elif action == 'cheat rename':
+        inventory['name'] = 'Neu Name'
+    if action == 'cheat add vegetable':
+        generate_item("vegetable")
+    elif action == 'cheat add fish':
+        generate_item("fish")
+    elif action == 'cheat add meat':
+        generate_item("meat")
+    elif action == 'cheat cook salad':
+        cook(inventory, 'cook salad')
+    elif action == 'cheat cook pescatarian':
+        cook(inventory, 'cook pescatarian')
+    elif action == 'cheat cook roasted':
+        cook(inventory, 'cook roasted')
+    elif action == 'cheat add wood sword':
+        generate_item("wooden_sword")
+    elif action == 'cheat add sword':
+        generate_item("sword")
+    elif action == 'cheat add wood shield':
+        generate_item("wooden_shield")
+    elif action == 'cheat add shield':
+        generate_item("shield")
+    elif action == cheat open sanctuaries:
+
+    elif action == cheat game over:
+
+    elif action == cheat win game:
+
