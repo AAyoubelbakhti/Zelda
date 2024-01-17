@@ -2,18 +2,18 @@
 prompt = [""] * 8
 
 
-def clear_prompt():
+def clearPrompt():
     global prompt
     prompt = [""] * 8
 
-def add_to_prompt(messages):
+def addToPrompt(text):
     global prompt
-    for message in messages:
-        if isinstance(message, str):
-            prompt.append(message)
-        else:
-            add_to_prompt(message)
+    prompt.append(text)
+    if len(prompt) > 8:
+        prompt.pop(0)
 
-def draw_prompt():
+def drawPrompt():
     global prompt
-    print('\n'.join(prompt))
+    for text in prompt:
+        print(text)
+
