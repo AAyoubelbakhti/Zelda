@@ -34,6 +34,7 @@ import random
 # Cuando atacas te quitan 1 corazon y se mueven 1 posicion
 # - Castillo lo ultimo
 
+
 gespa = " "
 spawn = "!"
 roca = "O"
