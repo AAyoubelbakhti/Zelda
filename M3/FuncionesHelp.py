@@ -16,21 +16,9 @@ def help_new_game():
 *       Type 'back' now to go back to 'Set your name'                         *
 *                                                                             *
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-""")
-    drawPrompt()
-
-    user_input = input("Enter an action: ").lower()
-    addToPrompt(user_input)
-
-    # Verificamos si el jugador quiere volver a 'New Game'
-    if user_input == "back":
-        print("Going back to 'Set your name'...")
-        new_game_menu()
-    else:
-        print("Invalid action. Type 'back' to return to 'Set your name'.")
+""")    drawPrompt()
 
 def inventory_help():
-
     print("""
 * Help, inventory * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *       Type 'show inventory main' to show the main inventory                 *
@@ -43,16 +31,6 @@ def inventory_help():
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """)
     drawPrompt()
-
-    user_input = input("Enter 'back' to resume the game: ").lower()
-    addToPrompt(user_input)
-
-    if user_input == "back":
-        print("going back to the game...")
-        game()
-    else:
-        print("Invalid action. Type 'back' to resume the game.")
-
 
 def main_menu_help():
 
@@ -71,14 +49,6 @@ def main_menu_help():
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """)
     drawPrompt()
-    user_input = input("Type 'back' to return to the main menu: ").lower()
-    addToPrompt(user_input)
-
-    if user_input == "back":
-        print("Loading...")
-        main()
-    else:
-        print("Invalid action. Type 'back' to return to the Main menu")
 
 def saved_games_help():
     print("""
@@ -96,14 +66,6 @@ def saved_games_help():
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """)
     drawPrompt()
-    user_input = input("Type 'back' to return to the main menu: ").lower()
-    addToPrompt(user_input)
-
-    if user_input == 'back':
-        print("Going back to the Main menu...")
-        main()
-    else:
-        print("Invalid action. Type 'back' to return to the main menu")
 
 def about():
     print("""
@@ -122,13 +84,4 @@ def about():
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """)
     drawPrompt()
-    user_input = input("Type 'back' to return to the Main menu: ").lower()
-    addToPrompt(user_input)
-
-    if user_input == "continue":
-        print("Loading...")
-        main()
-    else:
-        print("Invalid action. Type 'back' to retunr to the game.")
-
 

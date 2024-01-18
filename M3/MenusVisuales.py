@@ -5,8 +5,7 @@ from FuncionesPrompt import drawPrompt, addToPrompt, prompt
 
 
 def legend():
-
-    print( """
+    print("""
 * Legend  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
 *    10,000 years ago, Hyrule was a land of prosperity thanks to the Sheikah  *
@@ -32,7 +31,6 @@ def legend():
 
 
 def plot(player_name):
-
     print(f"""
 * Plot  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
