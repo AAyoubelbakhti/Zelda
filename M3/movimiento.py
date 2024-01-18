@@ -43,29 +43,47 @@ link = "X"
 chest = "M"
 open_chest = "W"
 enemy = "E"
-current_position = 0
-def movements(ac,mapa,current_position):
+pos_link = maps["Hyrule"][6][11]
+
+def is_valid_move(x, y, mapa):
+    if 0 <= x < len(mapa) and 0 <= y < len(mapa[0]) and mapa[x][y] != roca and mapa[x][y] != arbre and mapa[x][y] != cocina and mapa[x][y] != agua:
+        return True
+    return False
+
+def movements(ac, mapa, current_position):
     words = ac.split()
     way = words[1]
     acts = int(words[2])
-    # def is_valid_move(x, y):
-    #     if is_valid_position(x, y) and mapa[x][y] != roca and mapa[x][y] != arbre and mapa[x][y] != cocina and mapa[x][y] != agua:
-    #         return True
-    #     return False
-    if way == "left":
-        #posicion check y intercambiar el " " por "X"
-    elif way == "right":
-        #
-    elif way == "up":
-        #
-    elif way == "down":
-        #
+
+    x, y = current_position
+
+    if way == "left" and is_valid_move(x, y - acts, mapa):
+        mapa[x][y] = gespa
+        current_position = (x, y - acts)
+        mapa[x][y - acts] = link
+    elif way == "right" and is_valid_move(x, y + acts, mapa):
+        mapa[x][y] = gespa
+        current_position = (x, y + acts)
+        mapa[x][y + acts] = link
+    elif way == "up" and is_valid_move(x - acts, y, mapa):
+        mapa[x][y] = gespa
+        current_position = (x - acts, y)
+        mapa[x - acts][y] = link
+    elif way == "down" and is_valid_move(x + acts, y, mapa):
+        mapa[x][y] = gespa
+        current_position = (x + acts, y)
+        mapa[x + acts][y] = link
     elif way == "by":
-        #Buscar en el mapa la posicion valida mas cercana a lo que pide
+        # Implementa la búsqueda de la posición más cercana
     else:
-        # go to Hyrule, va al ! de ese mapa, hay 1 mapa inaccesible depende de el mapa en el que estes     
+        # Implementa el movimiento especial, por ejemplo, "go to Hyrule"
 
-def actions(ac):
-    if (ac.split()[0]) == "go":
-        movements(ac,'Hyrule',current_position)
+    return current_position
 
+
+
+
+def actions(ac, mapa, current_position):
+    if ac.split()[0] == "go":
+        current_position = movements(ac, mapa, current_position)
+    return current_position
