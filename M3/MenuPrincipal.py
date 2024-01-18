@@ -90,6 +90,14 @@ def main():
         elif user_input == "continue":
             # Agrega aquí la lógica para continuar el juego
             pass
+
+        elif user_input == "about":
+            about()
+            user_input = input()
+            addToPrompt(user_input)
+            if user_input == "back":
+                main()
+
         elif user_input == "help":
             main_menu_help()
             user_input = input()
