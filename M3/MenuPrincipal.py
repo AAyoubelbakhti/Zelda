@@ -28,10 +28,10 @@ def main():
         if user_input == "continue":
 
         if user_input == "help":
-
-
-
-
-
-
-
+            main_menu_help()
+                user_input = input()
+                addToPrompt(user_input)
+                if user_input == "back":
+                        main()
+                else:
+                        print("Invalid action, type back to go back to the 'Main menu")
