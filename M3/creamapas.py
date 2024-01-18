@@ -17,7 +17,7 @@ def imprimir_texto():
 
 
 """
-
+     
     lineas = texto_entrada.strip().split('\n')
     array_resultado = [list(linea) for linea in lineas]
 
