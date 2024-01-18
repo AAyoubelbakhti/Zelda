@@ -1,4 +1,5 @@
 from diccionarios import inventory, item_counters
+from comida import cook
 
 #función para mostrar el inventario
 def show_inventory(inventory, category):
@@ -48,9 +49,10 @@ def generate_item(item_type):
 
 #función trampas (incompleta)
 def cheat(inventory, action):
-    elif action == 'cheat rename':
-        inventory['name'] = 'Neu Name'
-    if action == 'cheat add vegetable':
+    if action == 'cheat rename':
+        newName = input("What is your name: ")
+        inventory['name'] = newName
+    elif action == 'cheat add vegetable':
         generate_item("vegetable")
     elif action == 'cheat add fish':
         generate_item("fish")
