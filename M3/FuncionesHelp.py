@@ -16,7 +16,8 @@ def help_new_game():
 *       Type 'back' now to go back to 'Set your name'                         *
 *                                                                             *
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-""")    drawPrompt()
+""")    
+    drawPrompt()
 
 def inventory_help():
     print("""
