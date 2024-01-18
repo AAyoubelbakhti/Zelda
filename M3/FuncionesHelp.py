@@ -1,8 +1,9 @@
+from FuncionesPrompt import addToPrompt,clearPrompt,drawPrompt, prompt
+
 
 def help_new_game():
-    messages = []
 
-    help_menu_text = """
+    print("""
 * Help,new game * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
 *                                                                             *
@@ -15,24 +16,22 @@ def help_new_game():
 *       Type 'back' now to go back to 'Set your name'                         *
 *                                                                             *
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
+""")
+    drawPrompt()
 
-    messages.append(help_menu_text)
     user_input = input("Enter an action: ").lower()
+    addToPrompt(user_input)
 
     # Verificamos si el jugador quiere volver a 'New Game'
     if user_input == "back":
-        messages.append("Going back to 'Set your name'...")
+        print("Going back to 'Set your name'...")
+        new_game_menu()
     else:
-        messages.append("Invalid action. Type 'back' to return to 'Set your name'.")
-    
-    return messages
+        print("Invalid action. Type 'back' to return to 'Set your name'.")
 
 def inventory_help():
-    messages = []
 
-
-    help_menu_text= """
+    print("""
 * Help, inventory * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *       Type 'show inventory main' to show the main inventory                 *
 *            (main, weapons, Food)                                            *
@@ -42,24 +41,22 @@ def inventory_help():
 *       Type 'unequip X' to unequip X, where X is a weapon                    *
 *       Type 'back' now to go back to the 'Game'                              *
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
+""")
+    drawPrompt()
 
-
-    messages.append(help_menu_text)
     user_input = input("Enter 'back' to resume the game: ").lower()
-
+    addToPrompt(user_input)
 
     if user_input == "back":
-        messages.append("going back to the game...")
+        print("going back to the game...")
+        game()
     else:
-        messages.append("Invalid action. Type 'back' to resume the game.")
+        print("Invalid action. Type 'back' to resume the game.")
 
-    return messages
 
 def main_menu_help():
-    messages = []
 
-    help_menu_text = """
+    print("""
 * Help, main menu * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
 *                                                                             *
@@ -72,24 +69,19 @@ def main_menu_help():
 *       Type 'back' now to go back to the 'Main menu'                         *
 *                                                                             *
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
-
-    messages.append(help_menu_text)
+""")
+    drawPrompt()
     user_input = input("Type 'back' to return to the main menu: ").lower()
-
+    addToPrompt(user_input)
 
     if user_input == "back":
-        messages.append("Loading...")
+        print("Loading...")
+        main()
     else:
-        messages.append("Invalid action. Type 'back' to return to the Main menu")
-    
-    return messages
-
+        print("Invalid action. Type 'back' to return to the Main menu")
 
 def saved_games_help():
-    messages = []
-
-    help_menu_text = """
+    print("""
 * Help, saved games * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 *                                                                             *
 *                                                                             *
@@ -102,22 +94,19 @@ def saved_games_help():
 *       Type 'back' now to go back to 'Saved games'                           *
 *                                                                             *
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
-
-    messages.append(help_menu_text)
+""")
+    drawPrompt()
     user_input = input("Type 'back' to return to the main menu: ").lower()
+    addToPrompt(user_input)
 
     if user_input == 'back':
-        messages.append("Going back to the Main menu...")
+        print("Going back to the Main menu...")
+        main()
     else:
-        messages.append("Invalid action. Type 'back' to return to the main menu")
-    
-    return messages
+        print("Invalid action. Type 'back' to return to the main menu")
 
 def about():
-    messages = []
-
-    about_menu_text= """
+    print("""
 * About * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             * 
 *       Game developed by Team 3, The Link of Zelda :                         *
@@ -131,17 +120,15 @@ def about():
 *       Type 'back' now to go back to the 'Main menu'                         *
 *                                                                             *
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
-
-    messages.append(about_menu_text)
+""")
+    drawPrompt()
     user_input = input("Type 'back' to return to the Main menu: ").lower()
-
+    addToPrompt(user_input)
 
     if user_input == "continue":
-        messages.append("Loading...")
+        print("Loading...")
+        main()
     else:
-        messages.append("Invalid action. Type 'back' to retunr to the game.")
-
-    return messages
+        print("Invalid action. Type 'back' to retunr to the game.")
 
 

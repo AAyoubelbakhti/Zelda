@@ -25,6 +25,12 @@ def main():
         addToPrompt(user_input)
         if user_input == "new game":
             new_game_menu()        
+        if user_input == "continue":
+
+        if user_input == "help":
+
+
+
 
 
 
