@@ -5,9 +5,7 @@ from diccionarios import inventory
 
 
 def new_game_menu():
-
     clear_screen()
-
     print(f"""
 * New game  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
@@ -23,7 +21,6 @@ def new_game_menu():
 *                                                                             *
 * Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """)
-
     drawPrompt()
 
     while True:
