@@ -6,8 +6,7 @@ def generar_menu_aleatorio():
     return menu_seleccionado()
 
 def menu_1():
-    messages = []
-    menu_1_text = """   
+    print("""   
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *    
 *                                                                &&           *
 *                                                                &&           *
@@ -21,15 +20,12 @@ def menu_1():
 *                                                        %%%%%%%%%%%%%%%      *   
 *                                                                             *                                                                            
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * *       
-"""
-
-    messages.append(menu_1_text)
-    return messages
+""")
+    drawPrompt()
 
 
 def menu_2():
-    messages = []
-    menu_2_text = """
+    print("""
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 *                                                                &&           *
 *                                                               oo &          *
@@ -43,15 +39,11 @@ def menu_2():
 *                                                               Q  Q          *
 *                                                                             *
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * * 
-"""
-
-    messages.append(menu_2_text)
-    return messages
-
+""")
+    drawPrompt()
 
 def menu_3():
-    messages = [] 
-    menu_3_text = """
+    print("""
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                &&           *
 *                                                               ####          *
@@ -65,6 +57,5 @@ def menu_3():
 *                                                                ||           *
 *                                                                             *
 * Continue, New Game, Help, About, Exit * * * * * * * * * * * * * * * * * * * *   
-"""
-    messages.append(menu_3_text)
-    return messages
+""")
+    drawPrompt()
