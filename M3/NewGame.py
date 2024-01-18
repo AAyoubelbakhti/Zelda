@@ -28,49 +28,22 @@ def new_game_menu():
 
     while True:
         player_name = input("Set your name (Link)? ")
-        addToPrompt()
+        addToPrompt(player_name)
 
         if not player_name:  
             inventory["name"] = "Link"
-            messages.append("Defaulting to 'Link'.")
+            print("Defaulting to 'Link'.")
 
         if player_name.lower() == "back":
-            messages.append("Going back to the Main menu...")
-            return messages, None
+            print("Going back to the Main menu...")
+            main()
         elif player_name.isalnum() or player_name.isspace():
             inventory["name"] = player_name
-            messages.append(f"Welcome to the game, {player_name}!")
+            print(f"Welcome to the game, {player_name}!")
 
         user_input = input("Type 'continue' to continue: ").lower()
+        addToPrompt(user_input)
 
         if user_input == "continue":
-            messages.append("Loading...")
-            legend_messages = legend()
-            messages.extend(legend_messages)
-            clear_screen()
-            draw_prompt()
-            
-
-            user_input = input("Type 'continue' to continue: ").lower()
-
-            if user_input == "continue":
-                messages.append("Loading...")
-                # Aquí puedes llamar a la función 'plot_menu' o realizar las acciones necesarias para el menú de 'plot'
-                plot_messages = plot(player_name)
-                messages.extend(plot_messages)
-                clear_screen()
-                draw_prompt()
-                return messages, player_name
-            else:
-                messages.append("Invalid action. Starting a new game.")
-                clear_screen()
-                draw_prompt()
-        else:
-            messages.append(f"{player_name} is not a valid name. Name must be alphanumeric and can contain spaces.")
-            clear_screen()
-            draw_prompt()
-
-
-
-
-
+            print("Loading...")
+            legend()

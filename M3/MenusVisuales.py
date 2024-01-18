@@ -1,3 +1,9 @@
+from FuncionesPrompt import drawPrompt, addToPrompt, prompt
+
+
+
+
+
 def legend():
 
     print( """
@@ -15,15 +21,19 @@ def legend():
 *                                                                             *
 * Continue  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 """)
-
-
+    drawPrompt()
+    user_input = input("Type 'continue' to continue: ")
+    addToPrompt(user_input)
+    if user_input == "continue":
+        plot()
+    else:
+        print("Invalid action. Please type 'continue' to continue")
 
 
 
 def plot(player_name):
-    messages = []
 
-    plot_menu_text = f"""
+    print(f"""
 * Plot  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
 *                                                                             *
@@ -36,9 +46,11 @@ def plot(player_name):
 *                                                                             *
 *                                                                             *
 * Continue  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-"""
-
-    messages.append(plot_menu_text)
-
-
-    return messages
+""")
+    drawPrompt
+    user_input = input("Type 'continue' to continue: ")
+    addToPrompt(user_input)
+    if user_input == "continue":
+        game()
+    else:
+        print("Invalid action. Please type 'continue' to continue")
