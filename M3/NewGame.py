@@ -28,23 +28,25 @@ def new_game_menu():
 
     while True:
         player_name = input("Set your name (Link)? ")
-        addToPrompt()
+        addToPrompt(player_name)
 
         if not player_name:  
             inventory["name"] = "Link"
-            messages.append("Defaulting to 'Link'.")
+            print("Defaulting to 'Link'.")
 
         if player_name.lower() == "back":
-            messages.append("Going back to the Main menu...")
-            return messages, None
+            print("Going back to the Main menu...")
+            main()
+            return None
         elif player_name.isalnum() or player_name.isspace():
             inventory["name"] = player_name
-            messages.append(f"Welcome to the game, {player_name}!")
+            print(f"Welcome to the game, {player_name}!")
 
         user_input = input("Type 'continue' to continue: ").lower()
+        addToPrompt(user_input)
 
         if user_input == "continue":
-            messages.append("Loading...")
+            print("Loading...")
             legend_messages = legend()
             messages.extend(legend_messages)
             clear_screen()
