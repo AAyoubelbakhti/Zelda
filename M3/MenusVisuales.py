@@ -1,5 +1,5 @@
 from FuncionesPrompt import drawPrompt, addToPrompt, prompt
-
+from diccionarios import inventory
 
 
 
@@ -23,14 +23,14 @@ def legend():
     drawPrompt()
     user_input = input("Type 'continue' to continue: ")
     addToPrompt(user_input)
-    if user_input == "continue":
+    if user_input.lower() == "continue":
         plot()
     else:
         print("Invalid action. Please type 'continue' to continue")
 
 
 
-def plot(player_name):
+def plot():
     print(f"""
 * Plot  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
@@ -39,7 +39,7 @@ def plot(player_name):
 *  Ganon. He has taken over the Guardians and filled Hyrule with monsters.    *
 *                                                                             *
 *                                                                             *
-*  But a young man named '{player_name}' has just awakened and                *
+*  But a young man named '{inventory["name"]}' has just awakened and                        *
 *  must reclaim the Guardians to defeat Ganon and save Hyrule.                *
 *                                                                             *
 *                                                                             *

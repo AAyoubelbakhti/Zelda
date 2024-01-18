@@ -1,14 +1,76 @@
 import mysql.connector
 from MenuAleatorio import generar_menu_aleatorio
 from FuncionesHelp import help_new_game, inventory_help, saved_games_help, main_menu_help, about
-from NewGame import new_game_menu, player_name
 from FuncionesPrompt import addToPrompt,clearPrompt,drawPrompt, prompt
 from otrasfunciones import clear_screen
-
-
+from diccionarios import inventory
+from MenusVisuales import legend
 
 
 cnx = mysql.connector.connect(user='root', password='superlocal', host='127.0.0.1', database='ZeldaSQL')
+
+
+
+
+
+
+player_name = "Link"
+
+
+def new_game_menu():
+    global player_name
+    clear_screen()
+    print(f"""
+* New game  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                                             *
+*                                                                             *
+*                                                                             *
+*                                                                             *
+*           Set your name {player_name}                                                *
+*                                                                             *
+*                                                                             *
+*                                                                             *
+*       Type 'back' now to go back to the 'Main menu'                         *
+*                                                                             *
+*                                                                             *
+* Back, Help  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+""")
+    drawPrompt()
+
+
+    player_name = input("Set your name (Link)? ")
+    addToPrompt(player_name)
+
+    if player_name.lower() == "help":
+        help_new_game()
+        player_name = input()
+        addToPrompt(player_name)
+        if player_name.lower() == "back":
+            new_game_menu()
+
+    if player_name.lower() == "back":
+        main()
+
+    elif not player_name:  
+        inventory["name"] = "Link"
+        print("Defaulting to 'Link'.")
+
+
+    elif player_name.isalnum() or player_name.isspace():
+        inventory["name"] = player_name
+        print(f"Welcome to the game, {player_name}!")
+
+    user_input = input("Type 'continue' to continue: ").lower()
+    addToPrompt(user_input)
+
+    if user_input == "continue":
+        print("Loading...")
+        legend()
+
+
+
+
+
 
 
 
@@ -25,8 +87,6 @@ def main():
         addToPrompt(user_input)
         if user_input == "new game":
             new_game_menu()
-            if player_name.lower() == "back":
-                main()
         elif user_input == "continue":
             # Agrega aquí la lógica para continuar el juego
             pass
