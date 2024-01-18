@@ -1,4 +1,4 @@
-from M3.maps import maps
+from M3.maps import maps, santuaris
 import random
 # La idea es hacer algo como Hyrule[3][4] y ir moviendose en un eje X Y.
 
@@ -23,7 +23,6 @@ import random
 # Hyrule i Gerudo espases
 # Death Mountain i Necluda escuts
 # -W, un cofre obert
-# Els cofres es tornen a tancar quan estan tots oberts, i el jugador es queda sense cap espasa
 # - EX 
 # Los enemigos tienen vida y cuando mueren desaparecen.
 # Cuando atacas te quitan 1 corazon y se mueven 1 posicion
@@ -49,11 +48,6 @@ def movements(ac,mapa,current_position):
     words = ac.split()
     way = words[1]
     acts = int(words[2])
-    # def is_valid_position(x, y):
-    #     if 0 <= x < len(mapa) and 0 <= y < len(mapa[0]):
-    #         return True
-    #     return False
-
     # def is_valid_move(x, y):
     #     if is_valid_position(x, y) and mapa[x][y] != roca and mapa[x][y] != arbre and mapa[x][y] != cocina and mapa[x][y] != agua:
     #         return True
