@@ -1,8 +1,8 @@
 from FuncionesPrompt import addToPrompt,clearPrompt,drawPrompt, prompt
-
+from otrasfunciones import clear_screen
 
 def help_new_game():
-
+    clear_screen()
     print("""
 * Help,new game * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *
@@ -16,7 +16,8 @@ def help_new_game():
 *       Type 'back' now to go back to 'Set your name'                         *
 *                                                                             *
 * Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-""")    drawPrompt()
+""")    
+    drawPrompt()
 
 def inventory_help():
     print("""
@@ -33,7 +34,7 @@ def inventory_help():
     drawPrompt()
 
 def main_menu_help():
-
+    clear_screen()
     print("""
 * Help, main menu * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                                                                             *

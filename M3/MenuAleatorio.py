@@ -1,4 +1,5 @@
 import random
+from FuncionesPrompt import drawPrompt
 
 def generar_menu_aleatorio():
     opciones = [menu_1, menu_2, menu_3]
