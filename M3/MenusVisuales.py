@@ -45,10 +45,10 @@ def plot():
 *                                                                             *
 * Continue  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 """)
-    drawPrompt
+    drawPrompt()
     user_input = input("Type 'continue' to continue: ")
     addToPrompt(user_input)
-    if user_input == "continue":
+    if user_input.lower() == "continue":
         game()
     else:
         print("Invalid action. Please type 'continue' to continue")

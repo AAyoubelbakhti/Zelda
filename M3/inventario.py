@@ -4,15 +4,15 @@ from comida import cook
 #función para mostrar el inventario
 def show_inventory(inventory, category):
     if category == 'help':
-        print('* Help, inventory * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *')
-        print("* Type 'show inventory main' to show the main inventory *")
-        print("* (main, weapons, Food) *")
-        print("* Type 'eat X' to eat X, where X is a Food item *")
-        print("* Type 'Cook X' to Cook X, where X is a Food item *")
-        print("* Type 'equip X' to equip X, where X is a weapon *")
-        print("* Type 'unequip X' to unequip X, where X is a weapon *")
-        print("* Type 'back' now to go back to the 'Game' *")
-        print("* Back * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+        print('* Help, inventory * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ')
+        print("* Type 'show inventory main' to show the main inventory                    *")
+        print("* (main, weapons, Food)                                                    *")
+        print("* Type 'eat X' to eat X, where X is a Food item                            *")
+        print("* Type 'Cook X' to Cook X, where X is a Food item                          *")
+        print("* Type 'equip X' to equip X, where X is a weapon                           *")
+        print("* Type 'unequip X' to unequip X, where X is a weapon                       *")
+        print("* Type 'back' now to go back to the 'Game'                                 *")
+        print("* Back * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     elif category == 'main':
         for key, value in inventory.items():
             if key == 'weapons':
@@ -38,7 +38,7 @@ def generate_item(item_type):
         item_id = item_counters[item_type]
         durability_max = 5 if 'wooden' in item_type else 9
         if item_type.startswith(('wooden_sword', 'wooden_shield', 'sword', 'shield')):
-            inventory['weapons'].append({"id": item_id, "type": item_type, "durability": {"current": durability_max, "max": durability_max}})
+            inventory['weapons'].append({"id": item_id, "type": item_type, "durability": {"current": durability_max, "max": durability_max}, "equiped": False })
         else:
             inventory['food'].setdefault(item_type, 0)
             inventory['food'][item_type] += 1

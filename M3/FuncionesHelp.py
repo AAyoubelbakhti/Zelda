@@ -35,20 +35,20 @@ def inventory_help():
 
 def main_menu_help():
     clear_screen()
-    print("""
-* Help, main menu * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*                                                                             *
-*                                                                             *
-*       Type 'continue' to continue a saved game                              *
-*       Type 'new game' to start a new game                                   *
-*       Type 'about' to see information about the game                        *
-*       Type 'exit' to exit the game                                          *
-*                                                                             *
-*                                                                             *
-*       Type 'back' now to go back to the 'Main menu'                         *
-*                                                                             *
-* Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-""")
+   
+    print("* Help, main menu * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+    print("*                                                                             *")
+    print("*                                                                             *")
+    print("*       Type 'continue' to continue a saved game                              *")
+    print("*       Type 'new game' to start a new game                                   *")
+    print("*       Type 'about' to see information about the game                        *")
+    print("*       Type 'exit' to exit the game                                          *")
+    print("*                                                                             *")
+    print("*                                                                             *")
+    print("*       Type 'back' now to go back to the 'Main menu'                         *")
+    print("*                                                                             *")
+    print("* Back  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+
     drawPrompt()
 
 def saved_games_help():

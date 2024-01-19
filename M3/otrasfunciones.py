@@ -11,7 +11,7 @@ def clear_screen():
     else:
         os.system('clear')
 
-#función para  el contador de blood moon (faltala parte para regenerar los  bichos)
+#función para  el contador de blood moon (falta la parte para regenerar los  bichos)
 def decrease_blood_moon(inventory):
     blood_moon = int(inventory['BloodMoon'])
     if blood_moon > 0:
