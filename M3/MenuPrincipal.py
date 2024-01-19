@@ -106,6 +106,8 @@ def main():
                 main()
             else:
                 print("Invalid action, type 'back' to go back to the Main menu")
-
+        if user_input == "exit":
+            print("Until the next time")
+            break
 if __name__ == "__main__":
     main()
