@@ -4,7 +4,7 @@ USE ZeldaSQL;
 
 -- Usuarios
 CREATE TABLE Users (
-    user_id INT UNSIGNED AUTO_INCREMENT,
+    user_id INT,
     username VARCHAR(50),
     created_at DATETIME,
     modified_at DATETIME
@@ -12,7 +12,7 @@ CREATE TABLE Users (
 
 -- Partidas
 CREATE TABLE Games (
-    game_id INT UNSIGNED AUTO_INCREMENT,
+    game_id INT ,
     user_id INT,
     date_started DATETIME,
     hearts_remaining INT,
@@ -162,5 +162,4 @@ ADD CONSTRAINT fk_user_foodsconsumed_user FOREIGN KEY (user_id) REFERENCES Users
 ADD CONSTRAINT fk_food_foodsconsumed_food FOREIGN KEY (food_id) REFERENCES Foods(food_id),
 ADD CONSTRAINT fk_game_foodsconsumed_game FOREIGN KEY (game_id) REFERENCES Games(game_id),
 MODIFY COLUMN quantity_remaining INT NOT NULL;
-
 
