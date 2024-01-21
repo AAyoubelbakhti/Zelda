@@ -26,7 +26,6 @@ link = "X"
 chest = "M"
 open_chest = "W"
 enemy = "E"
-Hyrule = maps["Hyrule"]
 
 def show_map(mapa):
     for row in mapa:
@@ -98,6 +97,26 @@ def open(ac,current_position,mapa):
     words = ac.split()
     blanc = words[1]
     x,y = current_position
+    if mapa(x+1,y) == santuari or mapa(x,y+1) == santuari or mapa(x,y-1) == santuari or mapa(x-1,y) == santuari:
+        inventory["Hearts"]["current"] = inventory["Hearts"]["max"]
+        inventory["Hearts"]["max"] + 1
+    if mapa(x+1,y) == chest or mapa(x,y+1) == chest or mapa(x,y-1) == chest or mapa(x-1,y) == chest:
+        ob = random.randint(0,1)
+        if ob == 1:
+            generate_item("wooden_sword")
+            addToPrompt("You got a Wood sword.")
+        else:        
+            generate_item("wooden_shield")
+            addToPrompt("You got a Wood shield.")
+    if mapa(x+1, y) == chest:
+        mapa[x+1][y] = open_chest
+    elif mapa(x, y+1) == chest:
+        mapa[x][y+1] = open_chest
+    elif mapa(x, y-1) == chest:
+        mapa[x][y-1] = open_chest
+    elif mapa(x-1, y) == chest:
+        mapa[x-1][y] = open_chest
+
 
  
 
