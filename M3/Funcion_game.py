@@ -83,7 +83,7 @@ def game():
             print("Comando no reconocido. Intenta de nuevo.")
 
 # Example of how to use it
-game()
+
 
 
 

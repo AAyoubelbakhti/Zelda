@@ -74,10 +74,5 @@ def mostrar_inventario(inventario):
 inventario = ["Sword", "Shield", "Key", "Rupees"]
 
 posicion_actual = [7, 11]
-while True:
-    mostrar_mapa()
-    mostrar_inventario(inventario)
-    ac = input("Mover: ")
-    posicion_actual = movimientos(ac, hyrule, posicion_actual)
 
 
