@@ -10,6 +10,10 @@ from FuncionesPrompt import addToPrompt
 # Hyrule X Necluda
 # Death Mountain X Gerudo
 
+
+
+
+
 gespa = " "
 spawn = "!"
 roca = "O"
@@ -24,7 +28,7 @@ link = "X"
 chest = "M"
 open_chest = "W"
 enemy = "E"
-pos_link = maps["Hyrule"][6][11]
+pos_link = maps["Hyrule"][11][7]
 Hyrule = maps["Hyrule"]
 
 def show_map(): #Esto muestra el mapa, pero tiene que cuadrar dentro de los *.
@@ -32,6 +36,7 @@ def show_map(): #Esto muestra el mapa, pero tiene que cuadrar dentro de los *.
         print(row)
 
 def attack(ac,current_position,mapa):
+    #global current_position
     words = ac.split()
     blanc = words[1]
     x,y = current_position
@@ -174,3 +179,61 @@ def actions(ac, mapa, current_position):
         open(ac,current_position,mapa)
         
     return current_position
+
+
+
+
+
+
+
+
+class Nearby:
+    global currentMap
+    def init(self, x, y):
+        self.top_left = currentMap[x-1][y-1]
+        self.top = currentMap[x, y-1]
+        self.top_right = currentMap[x+1, y-1]
+
+        self.left = currentMap[x-1, y]
+        self.right = currentMap[x+1, y]
+
+        self.bottom_left = currentMap[x-1, y+1]
+        self.bottom = currentMap[x, y+1]
+        self.bottom_right = currentMap[x+1, y+1]
+
+nearby = Nearby(7,13)
+
+def moveUp():
+    global currentLocaltion, nearby
+    if (nearby.top == ' ' ) :
+        currentLocaltion = [currentLocaltion[0], currentLocaltion[1]+1]
+        nearby = Nearby(currentLocaltion[0], currentLocaltion[1])
+    else :
+        addToPrompt("You can't move")
+        
+
+def moveDown():
+    global currentLocaltion, nearby
+    if (nearby.bottom == ' ' ) :
+        currentLocaltion = [currentLocaltion[0], currentLocaltion[1]-1]
+        nearby = Nearby(currentLocaltion[0], currentLocaltion[1])
+    else :
+        addToPrompt("You can't move")
+
+
+def moveLeft():
+    global currentLocaltion, nearby
+    if (nearby.left == ' ' ) :
+        currentLocaltion = [currentLocaltion[0]-1, currentLocaltion[1]]
+        nearby = Nearby(currentLocaltion[0], currentLocaltion[1])
+    else :
+        addToPrompt("You can't move")
+
+
+def moveRight():
+    global currentLocaltion, nearby
+    if (nearby.right == ' ' ) :
+        currentLocaltion = [currentLocaltion[0]+1, currentLocaltion[1]]
+        nearby = Nearby(currentLocaltion[0], currentLocaltion[1])
+    else :
+        addToPrompt("You can't move")

@@ -1,3 +1,7 @@
+
+
+
+
 #Atencion: Esta funcion no es necesaria, solo sirve para generar los mapas en forma de lista
 def imprimir_texto():
     texto_entrada = """

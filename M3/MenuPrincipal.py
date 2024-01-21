@@ -7,7 +7,7 @@ from diccionarios import inventory
 from MenusVisuales import legend
 
 
-cnx = mysql.connector.connect(user='root', password='superlocal', host='127.0.0.1', database='ZeldaSQL')
+#cnx = mysql.connector.connect(user='root', password='superlocal', host='127.0.0.1', database='ZeldaSQL')
 
 
 
