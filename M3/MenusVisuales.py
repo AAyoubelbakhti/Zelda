@@ -1,6 +1,6 @@
 from FuncionesPrompt import drawPrompt, addToPrompt, prompt
 from diccionarios import inventory
-
+from Funcion_game import game
 
 
 

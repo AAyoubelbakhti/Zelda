@@ -2,7 +2,7 @@ from diccionarios import inventory, item_counters
 from comida import cook
 
 #función para mostrar el inventario
-def show_inventory(inventory, category):
+def show_inventory(inventory_data, category):
     if category == 'help':
         print('* Help, inventory * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ')
         print("* Type 'show inventory main' to show the main inventory                    *")
@@ -14,21 +14,21 @@ def show_inventory(inventory, category):
         print("* Type 'back' now to go back to the 'Game'                                 *")
         print("* Back * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     elif category == 'main':
-        print(f"* Hearts: {inventory['Hearts']['current']}/{inventory['Hearts']['max']} *")
-        for key, value in inventory.items():
+        print(f"* Hearts: {inventory_data['Hearts']['current']}/{inventory_data['Hearts']['max']} *")
+        for key, value in inventory_data.items():
             if key == 'weapons':
                 print(f'{key}: {", ".join(item for item in value)}')
             elif key == 'food':
                 print(f'{key}: {", ".join(f"{food} ({quantity})" for food, quantity in value.items())}')
             else:
                 print(f'{key}: {value}')
-    elif category in inventory:
+    elif category in inventory_data:
         if category == 'weapons':
-            print(f'\nInventory {category}: {", ".join(item for item in inventory[category])}')
+            print(f'\nInventory {category}: {", ".join(item for item in inventory_data[category])}')
         elif category == 'food':
-            print(f'\nInventory {category}: {", ".join(f"{food} ({quantity})" for food, quantity in inventory[category].items())}')
+            print(f'\nInventory {category}: {", ".join(f"{food} ({quantity})" for food, quantity in inventory_data[category].items())}')
         else:
-            print(f'\nInventory {category}: {inventory[category]}')
+            print(f'\nInventory {category}: {inventory_data[category]}')
     else:
         print(f'Category "{category}" not found')
 
@@ -79,3 +79,37 @@ def cheat(inventory, action):
 
     #elif action == cheat win game:
 
+def unequip_weapon_by_name(name):
+    global inventory
+    for weapon in inventory['weapons']:
+        if weapon['type'] == name and weapon['equipped']:
+            weapon['equipped'] = False
+            print(f"{name} ha sido desequipada.")
+            return inventory
+    else:
+        print("No tienes ese arma o no está equipada.")
+        return inventory
+    
+def equip_weapon_by_name(name):
+    global inventory
+    for weapon in inventory['weapons']:
+        if weapon['equipped'] and weapon['type'] == name:
+            print(f"{name} ya está equipada.")
+            return inventory
+    if name.endswith("sword"):
+        for weapon in inventory['weapons']:
+            if weapon['equipped'] and weapon['type'].endswith("sword"):
+                print("Ya tienes una espada equipada.")
+                return inventory
+    elif name.endswith("shield"):
+        for weapon in inventory['weapons']:
+            if weapon['equipped'] and weapon['type'].endswith("shield"):
+                print("Ya tienes un escudo equipado.")
+                return inventory
+    for weapon in inventory['weapons']:
+        if weapon['type'] == name and weapon['durability']['current'] >= 1:
+            weapon['equipped'] = True
+            print(f"{name} ha sido equipada.")
+            return inventory
+    print("No tienes ese arma o ya está equipada.")
+    return inventory
