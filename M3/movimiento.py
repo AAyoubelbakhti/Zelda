@@ -109,6 +109,7 @@ def open(ac,current_position,mapa):
     if blanc == "sanctuary":
 
     if blanc == "chest":
+        pass
 
         
 

@@ -14,16 +14,17 @@ def show_inventory(inventory, category):
         print("* Type 'back' now to go back to the 'Game'                                 *")
         print("* Back * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     elif category == 'main':
+        print(f"* Hearts: {inventory['Hearts']['current']}/{inventory['Hearts']['max']} *")
         for key, value in inventory.items():
             if key == 'weapons':
-                print(f'{key}: {", ".join(item["type"] for item in value)}')
+                print(f'{key}: {", ".join(item for item in value)}')
             elif key == 'food':
                 print(f'{key}: {", ".join(f"{food} ({quantity})" for food, quantity in value.items())}')
             else:
                 print(f'{key}: {value}')
     elif category in inventory:
         if category == 'weapons':
-            print(f'\nInventory {category}: {", ".join(item["type"] for item in inventory[category])}')
+            print(f'\nInventory {category}: {", ".join(item for item in inventory[category])}')
         elif category == 'food':
             print(f'\nInventory {category}: {", ".join(f"{food} ({quantity})" for food, quantity in inventory[category].items())}')
         else:
@@ -72,9 +73,9 @@ def cheat(inventory, action):
         generate_item("wooden_shield")
     elif action == 'cheat add shield':
         generate_item("shield")
-    elif action == cheat open sanctuaries:
+    #elif action == cheat open sanctuaries:
 
-    elif action == cheat game over:
+    #elif action == cheat game over:
 
-    elif action == cheat win game:
+    #elif action == cheat win game:
 
