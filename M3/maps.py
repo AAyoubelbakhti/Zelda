@@ -2,7 +2,7 @@ santuaris = ["S0?","S1?","S2?","S3 ","S4?","S5?","S6?"]
             
 
 map = [ 
-         ""*" Map * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *",
+         "* Map * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *",
          "*                                                         *                   *",
         f"*  Hyrule       {santuaris[0]}                       Death mountain  *                   *",
         f"*                             {santuaris[2]}                         *                   *",
@@ -79,8 +79,11 @@ castle = [
 
 
 current_location = {
+    "Map" : map,
     "Hyrule": hyrule ,
-    "death_mountain"
+    "Gerudo" : gerudo ,
+    "Necluda" : necluda,
+    "Castle" : castle
 }
 
 

@@ -1,4 +1,4 @@
-from M3.maps import maps, santuaris
+from maps import map,hyrule , gerudo ,necluda,castle
 import random
 from diccionarios import inventory, item_counters
 from comida import cook
@@ -19,24 +19,20 @@ spawn = "!"
 roca = "O"
 cocina = "C"
 arbre = "T"
-#If arbre mapa[x][y+1] isnumber, False
 agua = "~"
 fox = "F"
 santuari = "S"
-#If santuari pos +2 is "?", then "?" = " "
 link = "X"
 chest = "M"
 open_chest = "W"
 enemy = "E"
-pos_link = maps["Hyrule"][11][7]
 Hyrule = maps["Hyrule"]
 
-def show_map(): #Esto muestra el mapa, pero tiene que cuadrar dentro de los *.
-    for row in maps["global"]:
-        print(row)
+def show_map(mapa):
+    for row in mapa:
+        print(' '.join(row))
 
 def attack(ac,current_position,mapa):
-    #global current_position
     words = ac.split()
     blanc = words[1]
     x,y = current_position
@@ -50,7 +46,7 @@ def attack(ac,current_position,mapa):
                addToPrompt("Nothing happened.")
     elif blanc == "tree":
             if mapa(x+1,y) == arbre or mapa(x,y+1) == arbre or mapa(x,y-1) == arbre or mapa(x-1,y) == arbre and tree_hp != 0:
-                if not espada_carregada:
+                if not inventory["weapons"]["charged"]:
                     ob = random.randint(1,100)
                     if ob <= 40:
                         generate_item("vegetable")
@@ -81,10 +77,7 @@ def attack(ac,current_position,mapa):
                     sword_hp = sword_hp - 1
                     tree_hp = tree_hp - 1
                     if tree_hp == 0:
-                        # Creo que habra que ponerle vidas a cada arbol, para asi meterle su contador
-    elif blanc == "fox":
-
-    elif blanc == "enemy":
+                        False
 
 
 
@@ -106,10 +99,7 @@ def open(ac,current_position,mapa):
     blanc = words[1]
     x,y = current_position
 
-    if blanc == "sanctuary":
-
-    if blanc == "chest":
-        pass
+ 
 
         
 
@@ -125,40 +115,39 @@ def open(ac,current_position,mapa):
 
 
 
-def is_valid_move(x, y, mapa):
-    if 0 <= x < len(mapa) and 0 <= y < len(mapa[0]) and mapa[x][y] != roca and mapa[x][y] != arbre and mapa[x][y] != cocina and mapa[x][y] != agua:
+def isvalid(x, y, mapa):
+    elementos_invalidos = [roca, arbre, cocina, agua, santuari, fox, enemy, chest, open_chest]
+
+    if 0 <= x < len(mapa) and 0 <= y < len(mapa[0]) and mapa[x][y] not in elementos_invalidos and not mapa[x][y].isdigit():
         return True
     return False
 
-def movements(ac, mapa, current_position):
-    words = ac.split()
-    way = words[1]
-    acts = int(words[2])
+def movements(ac, mapa, posicion_actual):
+    palabras = ac.split()
+    direccion = palabras[1]
+    cantidad = int(palabras[2])
 
-    x, y = current_position
+    x, y = posicion_actual
 
-    if way == "left" and is_valid_move(x, y - acts, mapa):
+    if direccion == "left" and isvalid(x, y - cantidad, mapa):
         mapa[x][y] = gespa
-        current_position = (x, y - acts)
-        mapa[x][y - acts] = link
-    elif way == "right" and is_valid_move(x, y + acts, mapa):
+        posicion_actual = (x, y - cantidad)
+        mapa[x][y - cantidad] = link
+    elif direccion == "right" and isvalid(x, y + cantidad, mapa):
         mapa[x][y] = gespa
-        current_position = (x, y + acts)
-        mapa[x][y + acts] = link
-    elif way == "up" and is_valid_move(x - acts, y, mapa):
+        posicion_actual = (x, y + cantidad)
+        mapa[x][y + cantidad] = link
+    elif direccion == "up" and isvalid(x - cantidad, y, mapa):
         mapa[x][y] = gespa
-        current_position = (x - acts, y)
-        mapa[x - acts][y] = link
-    elif way == "down" and is_valid_move(x + acts, y, mapa):
+        posicion_actual = (x - cantidad, y)
+        mapa[x - cantidad][y] = link
+    elif direccion == "down" and isvalid(x + cantidad, y, mapa):
         mapa[x][y] = gespa
-        current_position = (x + acts, y)
-        mapa[x + acts][y] = link
-    elif way == "by":
-        # Implementa la búsqueda de la posición más cercana
-    else:
-        # Implementa el movimiento especial, por ejemplo, "go to Hyrule"
+        posicion_actual = (x + cantidad, y)
+        mapa[x + cantidad][y] = link
+    
+    return posicion_actual
 
-    return current_position
 
 
 
